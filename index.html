@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WorkMate AI - your workplace assistant</title>
+  <meta name="description" content="Draft emails, summarise meetings, plan tasks, research topics and chat. Privacy-first AI assistant for the workplace.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f8b6d'/><path d='M24 32l14 38 12-26 12 26 14-38' fill='none' stroke='white' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="rail" aria-label="Assistant tools">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0f8b6d"/><path d="M24 32l14 38 12-26 12 26 14-38" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>WorkMate</span>
+      </div>
+      <div id="tabs" class="tabs" role="tablist"></div>
+      <div class="rail-foot">
+        <span id="modeBadge" class="badge" title="Connection status">Checking...</span>
+        <a href="#ethics" class="rail-link" id="ethicsLink">How we use AI responsibly</a>
+      </div>
+    </nav>
+
+    <main class="work">
+      <header class="work-head">
+        <div>
+          <h1 id="title"></h1>
+          <p id="subtitle"></p>
+        </div>
+        <label class="privacy" title="Masks emails, phone numbers and long ID numbers before the text is sent to the AI provider">
+          <input type="checkbox" id="redact" checked>
+          <span>Hide personal details</span>
+        </label>
+      </header>
+
+      <div class="panes">
+        <section class="pane input-pane" aria-label="Input">
+          <form id="form" novalidate></form>
+        </section>
+
+        <section class="pane output-pane" aria-label="Result" aria-live="polite">
+          <div class="output-bar">
+            <span id="outMeta" class="meta">Result</span>
+            <div class="actions">
+              <button type="button" id="copyBtn" class="ghost" disabled>Copy</button>
+              <button type="button" id="saveBtn" class="ghost" disabled>Download</button>
+            </div>
+          </div>
+          <article id="output" class="page empty">
+            <p>Your result appears here. Fill in the form and choose <strong>Generate</strong>, or use <strong>Try an example</strong> to see how it works.</p>
+          </article>
+          <p class="notice" id="notice">AI-generated content can contain mistakes. Review and edit before you send or act on it.</p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="ethics">
+    <h2>Using AI responsibly</h2>
+    <ul>
+      <li><strong>You stay in control.</strong> Every result is a draft. Nothing is sent or saved without you.</li>
+      <li><strong>Privacy first.</strong> Emails, phone numbers and long ID numbers are masked by default. No conversations are stored on our server.</li>
+      <li><strong>No made-up sources.</strong> The research tool is told not to invent citations. Verify important facts yourself.</li>
+      <li><strong>Treat pasted text as data.</strong> Instructions hidden in pasted emails or transcripts are ignored.</li>
+      <li><strong>Don't paste secrets.</strong> Avoid passwords, payment details, health records and confidential client data.</li>
+    </ul>
+    <form method="dialog"><button class="primary">Got it</button></form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
