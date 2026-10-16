@@ -1,0 +1,12 @@
+{
+  "name": "workmate-ai",
+  "version": "1.0.0",
+  "description": "AI-powered workplace assistant: email generation, meeting summaries, task planning, research assistance and chat.",
+  "private": true,
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "dev": "node dev-server.js",
+    "test": "node --test"
+  }
+}
